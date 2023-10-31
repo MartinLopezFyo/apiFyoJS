@@ -52,8 +52,18 @@ async function post(token, reqBody){
     await response.json();
 
 }
+require('dotenv').config()
 
 
-
-
-
+var raw = JSON.stringify({
+    "numeroContrato": 1234,
+    "numeroComprobante": 101231233,
+    "fechaDesde": "2022-01-06",
+    "fechaHasta": "2023-01-19",
+    "page": 1,
+    "pageSize": 50
+    });
+login(process.env.USERNAME, process.env.PASSWORD, process.env.CLIENT_ID).then(x => {
+    console.log(x.access_token);
+    console.log(getExpireDate(parseInt(x.expires_in)).toLocaleString())
+}, e => console.error(e))
