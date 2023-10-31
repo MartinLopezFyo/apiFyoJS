@@ -1,0 +1,11 @@
+{
+  "name": "apifyo",
+  "version": "1.0.0",
+  "description": "example repository to consume apiFyo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Martín López",
+  "license": "MIT"
+}
