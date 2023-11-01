@@ -7,14 +7,18 @@ let client = new apiFyo();
 client.login(process.env.B2C_USERNAME, process.env.B2C_PASSWORD, process.env.B2C_CLIENT_ID_TST).then(x => {
     console.log(x.access_token);
     console.log(client.expireDate.toLocaleString())
-    client.post('granos/liquidaciones', raw).then(x => console.log(x), e => console.log(e))
+    console.time("timer1");
+    client.post(liquidaciones.endpoint, liquidaciones.body).then(x => {
+        console.log(x)
+        console.timeEnd("timer1");
+    }, e => console.log(e))
 }, e => console.error(e))
 
 
 let liquidaciones = {
     endpoint: 'granos/liquidaciones',
-    body : {//"numeroComprobante":220009255,
-        //"numeroContratoCorredor":190803,
+    body : {//numeroComprobante:220009255,
+        //numeroContratoCorredor:190803,
         fechaDesde:"2023-07-01",
         fechaHasta:"2023-07-03"
     }
@@ -25,7 +29,7 @@ let contratos = {
     body : {
         fechaContratoDesde : "2023-09-01",
         fechaContratoHasta : "2023-09-05"
-        //"numeroContratoCorredor" : null}
+        //numeroContratoCorredor : null}
     }
 };
  
