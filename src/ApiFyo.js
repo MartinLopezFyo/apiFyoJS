@@ -1,9 +1,9 @@
 module.exports = class ApiFyo {
-    constructor(env = "dev"){
-        this.env = env; //tst | stg | prd
+    constructor(env = ""){
+        this.env = env; //dev = "dev" | tst = "tst" | stg = "stg" | prd = ""
         this.expireDate;
         this.token = '';
-        this.baseUrl = `https://apim-integraciones-${env}-002.azure-api.net`;
+        this.baseUrl = `https://${env}api.fyo.com`;
     }
     async login(username, password, clientId){
         let myHeaders = new Headers();

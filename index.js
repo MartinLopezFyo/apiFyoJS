@@ -3,7 +3,7 @@ require('dotenv').config()
 
 var apiFyo = require("./src/ApiFyo")
 
-let client = new apiFyo();
+let client = new apiFyo("dev");
 client.login(process.env.B2C_USERNAME, process.env.B2C_PASSWORD, process.env.B2C_CLIENT_ID_TST).then(x => {
     console.log(x.access_token);
     console.log(client.expireDate.toLocaleString())
